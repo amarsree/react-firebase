@@ -2,7 +2,9 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import {db} from './firebase-config';
 import { collection, getDocs } from 'firebase/firestore';
-
+import { Routes, Route, Link } from "react-router-dom";
+import Login from './component/Login'
+import Profile from './component/Profile'
 
 function App() {
   const [User,setUser]=useState([])
@@ -38,6 +40,10 @@ function App() {
 
   return (
     <div className="App">
+       <Routes>
+        {<Route path="/login" element={<Login />} />}
+        <Route path="/Profile" element={<Profile />} />
+      </Routes>
       <div>
         <input type='text' name="name" onChange={changeHandler} ></input>
         <input type='text' name="age" onChange={changeHandler} ></input>
